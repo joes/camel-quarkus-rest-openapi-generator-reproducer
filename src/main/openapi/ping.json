@@ -1,0 +1,54 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Ping API",
+    "version": "1.0"
+  },
+  "paths": {
+    "/ping": {
+      "get": {
+        "operationId": "ping",
+        "summary": "Simple ping endpoint",
+        "description": "Returns a Pong response with additional metadata",
+        "responses": {
+          "200": {
+            "description": "Successful Ping Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PingResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "PingResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Pong"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-10-29T12:00:00Z"
+          },
+          "serverId": {
+            "type": "string",
+            "example": "node-1"
+          }
+        },
+        "required": [
+          "message",
+          "timestamp"
+        ]
+      }
+    }
+  }
+}
